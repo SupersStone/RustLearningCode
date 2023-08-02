@@ -4,8 +4,6 @@
 
 use mysql::*;
 use mysql::prelude::*;
-use std::fmt::Write;
-
 
 // 定义学生结构体
 #[derive(Debug, PartialEq,Eq)]
@@ -20,7 +18,7 @@ struct Student {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
      // 连接到MySQL数据库
-     let url = "mysql://root:root@localhost:3306/test_local";
+     let url: &str = "mysql://root:root@localhost:3306/test_local";
      let pool = Pool::new(url)?;
      let mut conn = pool.get_conn()?;
  
